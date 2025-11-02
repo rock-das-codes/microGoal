@@ -43,7 +43,10 @@ useEffect(() => {
 
     if (diff <= 0) clearInterval(interval);
   };
-
+ if (timeRemaining <= 0){
+  alert('Time is up! ⏰, either reset the goal or mark it as gave up from the menu.');
+  
+ }
   // Run immediately and then every second
   updateRemaining();
   const interval = setInterval(updateRemaining, 1000);
@@ -75,6 +78,7 @@ useEffect(() => {
     goal && useGoal.getState().addCompletedGoal({ title: goal, date: new Date().toLocaleString(), status: 'completed' });
     router.push('/');
   }
+  
   const  handleMenuOption = async (option:string) => {
     setMenuVisible(false);
     if (option === 'sorry') {

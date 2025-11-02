@@ -28,7 +28,7 @@ export default function OnboardingScreen() {
       <TouchableOpacity
         style={styles.button}
         activeOpacity={0.8}
-        onPress={() => router.replace("/")}
+        onPress={() => router.replace("/home")}
       >
         <Text style={styles.buttonText}>Let's Go!</Text>
       </TouchableOpacity>
