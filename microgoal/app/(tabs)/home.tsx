@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from "react-native";
 import { SelectList } from "react-native-dropdown-select-list";
 import { router } from "expo-router";
-import {useGoal,useTime} from "../stores/pomodoro.js";
-import {addGoal} from "../goalService.js";
+import {useGoal,useTime} from "../../lib/stores/pomodoro.js";
+import {addGoal} from "../../lib/goalService.js";
 export default function Home() {
 
   const [time, setTime] = useState("");

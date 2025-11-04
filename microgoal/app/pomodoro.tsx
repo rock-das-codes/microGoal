@@ -10,11 +10,11 @@ import {
 } from 'react-native';
 import { AppState } from "react-native";
 import Svg, { Circle } from 'react-native-svg';
-import { useGoal } from './stores/pomodoro.js';
+import { useGoal } from '../lib/stores/pomodoro.js';
 import { router } from 'expo-router';
-import { useTime } from './stores/pomodoro.js';
+import { useTime } from '../lib/stores/pomodoro.js';
 const { width } = Dimensions.get('window');
-import {markGoalDone,markGoalFailed,deleteGoal} from './goalService.js';
+import {markGoalDone,markGoalFailed,deleteGoal} from '../lib/goalService.js';
 import { get } from 'react-native/Libraries/TurboModule/TurboModuleRegistry';
 export default function MyTinyGoal() {
   const [timeRemaining, setTimeRemaining] = useState(useTime((state) => parseInt(state.time) * 60 || 0));
@@ -76,7 +76,7 @@ useEffect(() => {
     alert('Congratulations on completing your Tiny Goal! 🎉');
     await markGoalDone(useGoal.getState().id);
     goal && useGoal.getState().addCompletedGoal({ title: goal, date: new Date().toLocaleString(), status: 'completed' });
-    router.push('/');
+    router.push('/home');
   }
   
   const  handleMenuOption = async (option:string) => {
@@ -85,7 +85,7 @@ useEffect(() => {
       alert("It's okay! You can always try again 💪");
       await markGoalFailed(useGoal.getState().id);
       goal && useGoal.getState().addGaveupGoal({ title: goal, date: new Date().toLocaleString(), status: 'gaveup' });
-      router.push('/');
+      router.push('/home');
     } else if (option === 'reset') {
       resetGoal?.();
       goal && useGoal.getState().updateGoal(goal);
@@ -96,7 +96,7 @@ useEffect(() => {
     } else if (option === 'delete') {
       await deleteGoal(useGoal.getState().id);
       deleteGoal?.();
-      router.push('/');
+      router.push('/home');
     }
   };
 

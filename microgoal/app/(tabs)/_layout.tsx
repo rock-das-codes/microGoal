@@ -2,7 +2,7 @@ import React, { use, useEffect } from "react";
 import { Tabs } from "expo-router";
 import { View, Text, StyleSheet, Platform } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import { initDB } from '../db.js';
+import { initDB } from '../../lib/db.js';
 export default function Layout() {
     useEffect(() => {
     initDB();

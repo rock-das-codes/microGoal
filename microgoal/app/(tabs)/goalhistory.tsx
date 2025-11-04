@@ -8,9 +8,9 @@ import {
   SafeAreaView,
   TouchableOpacity,
 } from "react-native";
-import { useGoal } from "../stores/pomodoro.js"; // adjust path if needed
+import { useGoal } from "../../lib/stores/pomodoro.js"; // adjust path if needed
 import { router } from "expo-router";
-import { getCompletedGoals,getFailedGoals } from "../goalService.js";
+import { getCompletedGoals,getFailedGoals } from "../../lib/goalService.js";
 
 interface Goal {
   title: string;
