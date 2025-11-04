@@ -7,7 +7,7 @@
     "icon": "./assets/images/icon.png",
     "scheme": "microgoal",
     "userInterfaceStyle": "automatic",
-    "newArchEnabled": false,
+    "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.rockdascodes.microgoal"
@@ -39,7 +39,8 @@
           }
         }
       ],
-      "expo-sqlite"
+      "expo-sqlite",
+      "expo-web-browser"
     ],
     "experiments": {
       "typedRoutes": true
